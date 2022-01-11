@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 })
 
 // connect to DB
-mongoose.connect(process.env.DB_CONNECT, () => {
+mongoose.connect("mongodb+srv://Alaska:Weltall1@cluster0.06sbc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", () => {
     console.log('Connected to DB!')
 })
 
