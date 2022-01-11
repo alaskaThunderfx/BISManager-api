@@ -17,10 +17,11 @@ app.use('/gearsets', gearSetRoute)
 //ROUTES
 app.get('/', (req, res) => {
     res.send('We are on home!')
+    console.log(typeof process.env.DB_CONNECT)
 })
 
 // connect to DB
-mongoose.connect("mongodb+srv://Alaska:Weltall1@cluster0.06sbc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", () => {
+mongoose.connect(process.env.DB_CONNECT, () => {
     console.log('Connected to DB!')
 })
 
