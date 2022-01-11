@@ -1,0 +1,1 @@
+"mongodb+srv://Alaska:<password>@cluster0.06sbc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
