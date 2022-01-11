@@ -17,11 +17,11 @@ app.use("/gearsets", gearSetRoute);
 //ROUTES
 app.get("/", (req, res) => {
   res.send("We are on home!");
-  console.log(typeof process.env.DB_CONNECT);
+  console.log(typeof process.env.DB_URI);
 });
 
 // connect to DB
-mongoose.connect(process.env.DB_CONNECT, {
+mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
