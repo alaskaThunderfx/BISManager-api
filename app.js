@@ -21,10 +21,8 @@ app.get("/", (req, res) => {
 });
 
 // connect to DB
-mongoose.connect(process.env.DB_URI, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
+mongoose.connect(process.env.DB_URI, () => {
+    console.log('connected to the db!')
 });
 
 app.listen(port, () => {
