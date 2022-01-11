@@ -1,4 +1,3 @@
-const { CategoryChannel } = require("discord.js");
 const express = require("express");
 const router = express.Router();
 const GearSet = require("../models/GearSet");
