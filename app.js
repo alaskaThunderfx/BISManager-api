@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 require('dotenv/config')
+const port = process.env.PORT
 
 app.use(bodyParser.json())
 
@@ -23,4 +24,6 @@ mongoose.connect(process.env.DB_CONNECT, () => {
     console.log('Connected to DB!')
 })
 
-app.listen(4741)
+app.listen(port, () => {
+    console.log("listening on port" + port)
+})
