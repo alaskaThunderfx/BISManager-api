@@ -12,7 +12,8 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log('request coming in')
+  console.log("user creation request coming in");
+  console.log(req.body)
   const user = new User({
     user: req.body.user,
   });
