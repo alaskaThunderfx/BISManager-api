@@ -18,6 +18,7 @@ router.get("/:id", async (req, res) => {
     .populate(`requests`)
     .populate(`createdTeams.`)
     .populate(`joinedTeams`)
+    .populate(`gearSets`)
     .then((user) => res.json({ user }))
     .catch(console.error);
 });

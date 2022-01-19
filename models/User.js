@@ -8,6 +8,12 @@ const UserSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    gearSets: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "GearSet",
+      },
+    ],
     requests: [requestSchema],
     createdTeams: [
       {
