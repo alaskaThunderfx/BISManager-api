@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 
+// Index all users
 router.get("/", async (req, res) => {
   try {
     const users = await User.find().populate("requests");
@@ -11,15 +12,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Find specific user
 router.get("/:id", async (req, res) => {
   User.findById(req.params.id)
-    .populate(`requests.team`)
-    .populate(`requests.requester`)
-    .populate(`requests.recipient`)
+    .populate(`requests`)
+    .populate(`createdTeams.`)
+    .populate(`joinedTeams`)
     .then((user) => res.json({ user }))
     .catch(console.error);
 });
 
+// Create a new user
 router.post("/", async (req, res) => {
   console.log("user creation request coming in");
   console.log(req.body);
@@ -34,6 +37,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Update user
 router.patch("/:id", (req, res) => {
   console.log(`updating user requests`);
   console.log(req.body);

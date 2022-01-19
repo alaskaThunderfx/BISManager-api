@@ -7,9 +7,12 @@ const teamSchema = new Schema(
       type: String,
       required: true,
     },
-    members: {
-      type: Array
-    },
+    members: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
     creator: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
@@ -17,4 +20,4 @@ const teamSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model('Team', teamSchema)
+module.exports = mongoose.model("Team", teamSchema);

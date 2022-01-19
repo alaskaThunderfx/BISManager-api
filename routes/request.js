@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 
-// Add new member to the team
+// Invite new member to the team
 router.post(`/`, (req, res) => {
   console.log(`request to add member to team:\n${JSON.stringify(req.body)}`);
   const requestData = req.body;
@@ -15,20 +15,19 @@ router.post(`/`, (req, res) => {
     .catch(console.error);
 });
 
-// View all requests
-router.get("/", (req, res) => {
-  console.log(`Requesting all member requests`);
-  Request.find()
-    .populate("team")
-    .populate("requester")
-    .populate("recipient")
-    .then((requests) => {
-      requests.forEach((request) => {
-        console.log(request.toJSON());
-      });
-      res.json({ requests });
-    })
-    .catch(console.error);
-});
+// Update request
+router.patch('/:id', (req, res) => {
+    const requestId = req.params.id
+    const userId = req.body.userId
+    const statusUpdate = req.body.request
+    User.findById(userId)
+        .then(user => {
+            const  request = user.requests.id(requestId)
+            request.set(statusUpdate)
+            return user.save()
+        })
+        .then(() => res.sendStatus(204))
+        .catch(console.error)
+})
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const requestSchema = require('./Request')
+const requestSchema = require("./Request");
 
 const UserSchema = mongoose.Schema(
   {
@@ -8,7 +8,19 @@ const UserSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    requests: [requestSchema]
+    requests: [requestSchema],
+    createdTeams: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Team",
+      },
+    ],
+    joinedTeams: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Team",
+      },
+    ],
   },
   {
     timestamps: true,
