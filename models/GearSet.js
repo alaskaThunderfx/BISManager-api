@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
 
-const GearSetSchema = new mongoose.Schema({
-  user: {
-    type: String,
-    required: true,
-    unique: true
-  },
+const gearSetSchema = new mongoose.Schema({
   job: {
     type: String,
     required: true
@@ -13,7 +8,6 @@ const GearSetSchema = new mongoose.Schema({
   weapon: {
     name: {
       type: String,
-      required: true,
     },
     doesHave: {
       type: Boolean,
@@ -119,11 +113,9 @@ const GearSetSchema = new mongoose.Schema({
       type: Boolean,
       default: false,
     },
-  },
-  date: {
-    type: Date,
-    default: Date.now
   }
+}, {
+  timestamps: true
 });
 
-module.exports = mongoose.model('GearSet', GearSetSchema)
+module.exports = gearSetSchema

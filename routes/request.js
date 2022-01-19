@@ -36,7 +36,6 @@ router.delete(`/:id`, (req,res) => {
     const userId = req.body.userId
     User.findById(userId)
         .then(user => {
-            // console.log(user)
             user.requests.id(requestId).remove()
             return user.save()
         })

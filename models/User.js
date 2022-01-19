@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const gearSetSchema = require("./GearSet");
 const requestSchema = require("./Request");
 
 const UserSchema = mongoose.Schema(
@@ -8,12 +9,7 @@ const UserSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    gearSets: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "GearSet",
-      },
-    ],
+    gearSets: [gearSetSchema],
     requests: [requestSchema],
     createdTeams: [
       {
