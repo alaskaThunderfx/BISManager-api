@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const requestSchema = require('./Request')
 
 const UserSchema = mongoose.Schema(
   {
@@ -7,6 +8,7 @@ const UserSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    requests: [requestSchema]
   },
   {
     timestamps: true,

@@ -11,12 +11,12 @@ app.use(bodyParser.json());
 const userRoute = require("./routes/user");
 const gearSetRoute = require("./routes/gearset");
 const teamRoute = require(`./routes/team`)
-const memberRoute = require(`./routes/member`)
+const requestRoute = require(`./routes/request`)
 
 app.use("/users", userRoute);
 app.use("/gearsets", gearSetRoute);
 app.use(`/teams`, teamRoute)
-app.use(`/members`, memberRoute)
+app.use(`/requests`, requestRoute)
 
 //ROUTES
 app.get("/", (req, res) => {

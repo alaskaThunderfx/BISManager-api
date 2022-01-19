@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const memberSchema = new Schema({
+const requestSchema = new Schema({
     team: {
         type: Schema.Types.ObjectId, ref: 'Team'
     },
@@ -24,4 +24,4 @@ const memberSchema = new Schema({
     timestamps: true
 })
 
-module.exports = memberSchema
+module.exports = requestSchema

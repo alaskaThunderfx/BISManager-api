@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const memberSchema = require('./Member')
 const Schema = mongoose.Schema;
 
 const teamSchema = new Schema(
@@ -8,7 +7,9 @@ const teamSchema = new Schema(
       type: String,
       required: true,
     },
-    members: [memberSchema],
+    members: {
+      type: Array
+    },
     creator: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
