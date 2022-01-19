@@ -32,8 +32,18 @@ router.get(`/:id`, (req, res) => {
   console.log(`Receiving a get request`);
   Team.findById(req.params.id)
     .populate("creator")
+    .populate('members')
     .then((team) => res.json({ team }))
     .catch(console.error);
 });
+
+// Modify members
+router.patch(`/:id`, (req, res) => {
+    console.log(`Adding member to the team`)
+    Team.findById(req.params.id)
+        .then(team => team.updateOne(req.body))
+        .then(() => res.sendStatus(204))
+        .catch(console.error)
+})
 
 module.exports = router;

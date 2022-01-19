@@ -30,4 +30,18 @@ router.patch('/:id', (req, res) => {
         .catch(console.error)
 })
 
+// Delete request
+router.delete(`/:id`, (req,res) => {
+    const requestId = req.params.id
+    const userId = req.body.userId
+    User.findById(userId)
+        .then(user => {
+            // console.log(user)
+            user.requests.id(requestId).remove()
+            return user.save()
+        })
+        .then(() => res.sendStatus(204))
+        .catch(console.error)
+})
+
 module.exports = router;
