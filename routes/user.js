@@ -29,6 +29,7 @@ router.post("/", async (req, res) => {
   console.log(req.body);
   const user = new User({
     user: req.body.user,
+    iconURL: req.body.iconURL
   });
   try {
     const savedUser = await user.save();

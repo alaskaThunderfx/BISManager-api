@@ -9,6 +9,10 @@ const UserSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    iconURL: {
+      type: String,
+      required: true
+    },
     gearSets: [gearSetSchema],
     requests: [requestSchema],
     createdTeams: [
